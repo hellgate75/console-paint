@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <parent>
+    <artifactId>springernature-app</artifactId>
+    <groupId>org.console.springernature</groupId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>springernature-console-paint</artifactId>
+  <name>Springer Nature Console Paint Application</name>
+  <organization>
+    <name>Fabrizio Torelli</name>
+    <url>http://ie.linkedin.com/in/fabriziotorelli</url>
+  </organization>
+  <build>
+    <defaultGoal>clean install test shade:shade</defaultGoal>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-shade-plugin</artifactId>
+          <version>2.4.3</version>
+          <executions>
+            <execution>
+              <phase>package</phase>
+              <goals>
+                <goal>shade</goal>
+              </goals>
+              <configuration>
+                <artifactSet>
+                  <excludes>
+                    <exclude>classworlds:classworlds</exclude>
+                    <exclude>junit:junit</exclude>
+                    <exclude>org.mockito:*</exclude>
+                    <exclude>org.mockito:*</exclude>
+                    <exclude>*:slf4j-log4j12:*</exclude>
+                    <exclude>*:slf4j-log4j14:*</exclude>
+                    <exclude>*:xml-apis</exclude>
+                    <exclude>org.apache.maven:lib:tests</exclude>
+                    <exclude>log4j:*</exclude>
+                  </excludes>
+                </artifactSet>
+                <transformers>
+                  <transformer>
+                    <mainClass>com.console.springernature.paint.app.Main</mainClass>
+                  </transformer>
+                </transformers>
+                <shadeSourcesContent>true</shadeSourcesContent>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit-dep</artifactId>
+      <version>4.11</version>
+      <scope>runtime</scope>
+    </dependency>
+  </dependencies>
+</project>
+

@@ -1,0 +1,14 @@
+*.bat
+**.*/*.bat
+*.txt
+.project
+.classpath
+.settings
+.wtpmodules
+target
+**.*/.project
+**.*/.settings
+**.*/target
+**.*/.classpath
+**.*/*.txt
+**.*/.metadata
